@@ -1,8 +1,15 @@
 <html>
 	<head>
 		<title>Hello World</title>
+		<link rel="StyleSheet" href="hello.css" type="text/css" />
+		<script type="text/javascript">
+			function changeLink() {
+				var h1t = document.getElementById("h1Tag");
+				h1t.innerHTML = (h1t.innerHTML == "Hello World" ? "Goodbye World" : "Hello World");
+			}
+		</script>
 	</head>
 	<body>
-		<h1>Hello World</h1>
+		<h1 id="h1Tag" onclick="changeLink()">Hello World</h1>
 	</body>
 </html>
