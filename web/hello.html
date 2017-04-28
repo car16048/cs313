@@ -1,15 +1,22 @@
 <html>
 	<head>
 		<title>Hello World</title>
-		<link rel="StyleSheet" href="hello.css" type="text/css" />
-		<script type="text/javascript">
-			function changeLink() {
-				var h1t = document.getElementById("h1Tag");
-				h1t.innerHTML = (h1t.innerHTML == "Hello World" ? "Goodbye World" : "Hello World");
-			}
-		</script>
+		<link rel="StyleSheet" href="styles/hello.css" type="text/css" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="scripts/hello.js"></script>
 	</head>
 	<body>
-		<h1 id="h1Tag" onclick="changeLink()">Hello World</h1>
+		<div class="d1" id="div1">First Block</div>
+		<div class="d2" id="div2">Second Block</div>
+		<div class="d3" id="div3">Third Block</div>
+		<button onclick="ShowClicked()">Click Me</button>
+		<br />
+		<input type="text" id="txt1" />
+		<button onclick="ChangeColor1()">Change color 1</button>
+		<br />
+		<input type="text" id="txt2" />
+		<button onclick="ChangeColor2()">Change color 2</button>
+		<br />
+		<button onclick="Fade3()">Show/Hide</button>
 	</body>
 </html>
