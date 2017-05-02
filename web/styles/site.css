@@ -31,3 +31,27 @@ div.content {
 	padding-left: 30px;
 	width: 79%;
 }
+
+.header1 {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.header2 {
+	font-size: 1.6em;
+	font-weight: bold;
+}
+
+.header3 {
+	font-size: 1.22em;
+	font-weight: bold;
+}
+
+th, td {
+	margin: 4px;
+}
+
+textarea.address {
+	width: 80%;
+	height: 92px;
+}
