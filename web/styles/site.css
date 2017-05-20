@@ -1,7 +1,47 @@
 html, body {
 	width: 99%;
-	height: 100%;
+	height: 99%;
 	font-family: Arial, Helvetica, sans-serif;
+	background-color: #efe7d0;
+}
+
+div.body-panel {
+	width: 1200px;
+	background-color: #fffaf4;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 98%;
+}
+
+div.header {
+	height: 80px;
+}
+
+div.userDetail {
+	position: relative;
+	right: -822px;
+	top: -12px;
+}
+
+div.needUser {
+	display: none;
+}
+
+div.hasUser {
+	display: none;
+}
+
+div.searchPanel {
+	position: relative;
+	right: -544px;
+}
+
+div.postSearch {
+	display: none;
+}
+
+div.searchResult {
+	margin-top: 30px;
 }
 
 h1, h2, h3, h4, h5, h6 {
