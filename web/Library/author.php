@@ -21,7 +21,7 @@ if (empty($author)) {
 	if (empty($website)) {
 		echo "<h1>$name has authored the following books:</h1>";
 	} else {
-		echo "<h1><a href='$website'>$name</a> has authored the following books:</h1>";
+		echo "<h1><a href='//$website'>$name</a> has authored the following books:</h1>";
 	}
 	echo '<div class="postSearch"><div class="searchResults"></div></div>';
 }

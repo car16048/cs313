@@ -17,10 +17,23 @@ div.header {
 	height: 80px;
 }
 
+a.homelink div {
+	background-image: url('LincolnLibraryLogo.png');
+	background-repeat: no-repeat;
+	margin-left: 12px;
+	height: 80px;
+	width: 400px;
+}
+
+a.homelink div span {
+	display: none;
+}
+
 div.userDetail {
 	position: relative;
 	right: -822px;
-	top: -12px;
+	top: -72px;
+	width: 370px;
 }
 
 div.needUser {
@@ -29,6 +42,8 @@ div.needUser {
 
 div.hasUser {
 	display: none;
+	text-align: right;
+	padding-top: 20px;
 }
 
 div.searchPanel {
@@ -42,6 +57,43 @@ div.postSearch {
 
 div.searchResult {
 	margin-top: 30px;
+}
+
+th {
+	text-align: left;
+}
+
+div.keyword-container {
+	padding: 4px 6px 4px 6px;
+	display: inline;
+}
+
+div.keyword-div {
+	color: #fffdf9;
+	background-color: #238012;
+	border-radius: 16px;
+	display: inline;
+	padding: 1px 8px 1px 8px;
+}
+
+a.keyword {
+	color: #fffdf9;
+	text-decoration: none;
+}
+
+a.remove-keyword {
+	color: #fff9f9;
+	background-color: #ff4340;
+	cursor: pointer;
+	position: relative;
+	top: -2px;
+	right: -4px;
+	margin: 0 2px 0 2px;
+	padding: 1px 4px 1px 4px;
+	font-size: 0.6em;
+	border-radius: 6px;
+	height: 12px;
+	text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {

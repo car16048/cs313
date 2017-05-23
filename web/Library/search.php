@@ -1,15 +1,5 @@
 <?php
-	session_start();
-	$dbUrl = getenv('DATABASE_URL');
-	$dbOpts = parse_url($dbUrl);
-
-	$dbHost = $dbOpts["host"];
-	$dbPort = $dbOpts["port"];
-	$dbUser = $dbOpts["user"];
-	$dbPass = $dbOpts["pass"];
-	$dbName = ltrim($dbOpts["path"], '/');
-
-	$db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPass);
+	require 'dbsession.php';
 	header('Content-type: application/json');
 
 	$rows = array();
@@ -37,16 +27,8 @@
 		if (is_numeric($searchId)) $stm->bindParam(':searchId', $searchId, PDO::PARAM_INT);
 		$stm->execute();
 
-		foreach ($stm->fetchAll() as $row) {
-			$rows['results'][] = array(
-				'bookid'=>$row['bookid'],
-				'title'=>$row['title'],
-				'abstract'=>$row['abstract'],
-				'publisheddate'=>$row['publisheddate'],
-				'authorid'=>$row['authorid'],
-				'author'=>$row['author'],
-				'publisherid'=>$row['publisherid'],
-				'publisher'=>$row['publisher']);
+		foreach ($stm->fetchAll(PDO::FETCH_ASSOC) as $row) {
+			$rows['results'][] = $row;
 		}
 	}
 

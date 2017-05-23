@@ -1,16 +1,10 @@
 function searchBooks(searchType, searchText, searchId) {
-
-	var searchUrl = 'search.php?v=3';
-	if (searchType) searchUrl += '&searchType=' + encodeURIComponent(searchType);
-	if (searchText) searchUrl += '&searchText=' + encodeURIComponent(searchText);
-	if (searchId) searchUrl += '&searchId=' + encodeURIComponent(searchId);
-
 	$('#searchButton').prop('disabled', true);
 	$(".preSearch").hide();
 	$(".searchResults").html('Please wait while we look for that...');
 	$(".postSearch").show();
 
-	$.getJSON(searchUrl).done(function (data) {
+	$.getJSON('search.php', {'v': 3, 'searchType':searchType, 'searchText':searchText, 'searchId':searchId}).done(function (data) {
 		try
 		{
 			var html = [];
