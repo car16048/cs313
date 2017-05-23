@@ -63,8 +63,8 @@ $(function() {
 								<td><label for="passWord">Password:</label></td>
 							</tr>
 							<tr>
-								<td><input type="text" id="userName" size="20" /></td>
-								<td><input type="password" id="passWord" size="20" /></td>
+								<td><input type="text" id="userName" /></td>
+								<td><input type="password" id="passWord" /></td>
 								<td><button onclick="loginUser()">Login</button></td>
 							</tr>
 						</table>

@@ -15,7 +15,7 @@ if (!empty($_GET['searchType']) && !empty($_GET['searchText'])) {
 		<option value="author">Author</option>
 		<option value="publisher">Publisher</option>
 	</select>
-	<input type="text" size="40" id="searchText" />
+	<input type="text" id="searchText" />
 	<button onclick="searchBooks($('#searchType').val(), $('#searchText').val())" id="searchButton">Search</button>
 </div>
 <div class="preSearch">

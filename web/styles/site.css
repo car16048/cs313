@@ -6,6 +6,7 @@ html, body {
 }
 
 div.body-panel {
+	position: relative;
 	width: 1200px;
 	background-color: #fffaf4;
 	margin-left: auto;
@@ -15,6 +16,8 @@ div.body-panel {
 
 div.header {
 	height: 80px;
+	width: 1200px;
+	position: relative;
 }
 
 a.homelink div {
@@ -30,9 +33,9 @@ a.homelink div span {
 }
 
 div.userDetail {
-	position: relative;
-	right: -822px;
-	top: -72px;
+	position: absolute;
+	right: 30px;
+	top: 13px;
 	width: 370px;
 }
 
@@ -46,9 +49,16 @@ div.hasUser {
 	padding-top: 20px;
 }
 
-div.searchPanel {
+div.content {
+	width: 1140px;
 	position: relative;
-	right: -544px;
+	padding-left: 30px;
+}
+
+div.searchPanel {
+	position: absolute;
+	right: -10px;
+	top: 6px;
 }
 
 div.postSearch {
@@ -96,6 +106,14 @@ a.remove-keyword {
 	text-decoration: none;
 }
 
+#searchText {
+	width: 270px;
+}
+
+#userName, #passWord {
+	width: 153px;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 	color: #0B2070;
@@ -116,12 +134,6 @@ div.sidebar {
 	background-color: #2030A8;
 	top: 0;
 	bottom: 0;
-}
-
-div.content {
-	margin-left: 9%;
-	padding-left: 30px;
-	width: 79%;
 }
 
 .header1 {
