@@ -29,11 +29,49 @@ function loginUser() {
 		if (!data || !data.user || !data.user.loginname) {
 			$('#userName').val('');
 			$('#passWord').val('');
-			alert('An invalid username or password was provided.  Please try again.');
+			showError('loginError', 'An invalid username or password was provided.  Please try again.');
 		} else {
 			showUser(data.user);
+			$('#loginPanel').dialog('close');
 		}
 	});
+}
+function signupUser() {
+	var signupData = {
+		'signup': true,
+		'firstname': $('#firstName').val(),
+		'lastname': $('#lastName').val(),
+		'username': $('#signUserName').val(),
+		'password': $('#signPassWord').val(),
+		'confpass': $('#confPass').val()
+	};
+
+	$.post('login.php', signupData, null, 'json').done(function(data) {
+		if (data && data.error) {
+			showError('signupError', data.error);
+			if (data.field == 'lastname') { $('#lastName').focus(); }
+			else if (data.field == 'username') { $('#signUserName').focus(); }
+			else if (data.field == 'password') { $('#signPassWord').focus(); }
+			else if (data.field == 'confpass') { $('#confPass').focus(); }
+			else { $('#firstName').focus(); }
+		} else if (!data || !data.user || !data.user.loginname) {
+			$('#signPassWord').val('');
+			$('#confPass').val('');
+			showError('signupError', 'Unable to create the user.  Please try again later.');
+			$('#firstName').focus();
+		} else {
+			showUser(data.user);
+			$('#signupPanel').dialog('close');
+		}
+	});
+}
+function showError(errDiv, error) {
+	$('#' + errDiv).html(error);
+	$('#' + errDiv).show(500);
+	setTimeout(function() {
+		$('#' + errDiv).hide(2000);
+		$('#' + errDiv).html('');
+	}, 3000);
 }
 $(function() {
 	showUser(<?php
@@ -52,22 +90,53 @@ $(function() {
 		</script>
 	</head>
 	<body>
+		<div id="loginPanel" style="display: none" title="Login">
+			<table>
+				<tr>
+					<th><label for="userName">Username:</label></th>
+					<td><input type="text" id="userName" /></td>
+				</tr>
+				<tr>
+					<th><label for="passWord">Password:</label></th>
+					<td><input type="password" id="passWord" /></td>
+				</tr>
+			</table>
+			<button onclick="loginUser()">Login</button>
+			<div id="loginError" class="error-text"></div>
+		</div>
+		<div id="signupPanel" style="display: none" title="Create a New User">
+			<table>
+				<tr>
+					<th><label for="firstName">First Name:</label></th>
+					<td><input type="text" id="firstName" /></td>
+				</tr>
+				<tr>
+					<th><label for="lastName">Last Name:</label></th>
+					<td><input type="text" id="lastName" /></td>
+				</tr>
+				<tr>
+					<th><label for="signUserName">Username:</label></th>
+					<td><input type="text" id="signUserName" /></td>
+				</tr>
+				<tr>
+					<th><label for="signPassWord">Password:</label></th>
+					<td><input type="password" id="signPassWord" /></td>
+				</tr>
+				<tr>
+					<th><label for="confPass">Confirm:</label></th>
+					<td><input type="password" id="confPass" /></td>
+				</tr>
+			</table>
+			<button onclick="signupUser()">Create User</button>
+			<div id="signupError" class="error-text"></div>
+		</div>
 		<div class="body-panel">
 			<div class="header">
 				<a class="homelink" href="./"><div><span>Lincoln Libary</span></div></a>
 				<div class="userDetail">
 					<div class="needUser">
-						<table>
-							<tr>
-								<td><label for="userName">Username:</label></td>
-								<td><label for="passWord">Password:</label></td>
-							</tr>
-							<tr>
-								<td><input type="text" id="userName" /></td>
-								<td><input type="password" id="passWord" /></td>
-								<td><button onclick="loginUser()">Login</button></td>
-							</tr>
-						</table>
+						<button onclick="$('#loginPanel').dialog({modal: true});" style='margin-left: 6px; margin-right: 6px'>Log In</button>
+						<button onclick="$('#signupPanel').dialog({width: 350, modal: true});" style='margin-left: 6px; margin-right: 6px'>Sign Up</button>
 					</div>
 					<div class="hasUser">
 						Welcome <span class="userName"></span>! <button onclick="logoutUser()">Logout</button>

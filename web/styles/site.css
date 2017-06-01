@@ -32,6 +32,10 @@ a.homelink div span {
 	display: none;
 }
 
+.error-text {
+	color: red;
+}
+
 div.userDetail {
 	position: absolute;
 	right: 30px;
@@ -41,6 +45,9 @@ div.userDetail {
 
 div.needUser {
 	display: none;
+	position: absolute;
+	right: -20px;
+	top: 20px;
 }
 
 div.hasUser {
